@@ -7,18 +7,15 @@ class PortfoliosController < ApplicationController
 
   def new
     if params[:query].present?
-      tickers = params[:query]
       begin
-        url = "http://api.marketstack.com/v1/eod?access_key=0f7424aef84ceea4f0ac1b4db80ec5c5&symbols=#{tickers}"
-        assets_serialized = URI.open(url).read
-        @assets = JSON.parse(assets_serialized)
+       @assets = MarketStackApiManager.new(params[:query]).get_data
       rescue => e
         @error = "not valid ticker"
       end
     end
     @portfolio = Portfolio.new
-    @portfolio.name = @assets["data"].first["symbol"]
-    @portfolio.user = current_user
+    # @portfolio.name = @assets["data"].first["symbol"]
+    # @portfolio.user = current_user
   end
 
   def create
