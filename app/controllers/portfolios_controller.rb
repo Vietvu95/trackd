@@ -11,11 +11,14 @@ class PortfoliosController < ApplicationController
        @assets = MarketStackApiManager.new(params[:query]).get_data
       rescue => e
         @error = "not valid ticker"
+        # begin
+        #   @assets = coin.new(params[:query]).get_data
+        # rescue => e
+        #   @error = "not valid ticker"
+      #  end
       end
     end
     @portfolio = Portfolio.new
-    # @portfolio.name = @assets["data"].first["symbol"]
-    # @portfolio.user = current_user
   end
 
   def create
