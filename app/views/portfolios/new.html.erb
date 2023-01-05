@@ -1,7 +1,7 @@
 <h1>Create your new portfolio!</h1>
 
 
-<%= form_with method: :get, model: @portfolio, class: "d-flex" do %>
+<%= form_with method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
