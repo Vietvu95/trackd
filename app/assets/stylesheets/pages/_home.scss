@@ -1,1 +1,57 @@
 // Specific CSS for your home-page
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: #24FF00;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1200px;
+  max-height: 800px;
+  background-color: black;
+}
+
+p {
+  color: white;
+  position: absolute;
+}
+
+.card4 {
+  position: absolute;
+  width: 875px;
+  height: 823px;
+  left: 665px;
+  top: 19px;
+}
+.card4 img {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: -370.75px;
+  top: -21px;
+  bottom: 82.92%;
+  size: 70px;
+  transform: matrix(0.91, 0.44, -0.4, 0.9, 0, 0);
+
+}
+
+.card4 {
+  position: absolute;
+  width: 875px;
+  height: 823px;
+  left: 665px;
+  top: 19px;
+
+}
+
+.card5 {
+  background-color: white;
+  margin-top: 270px;
+  height: 120px;
+}

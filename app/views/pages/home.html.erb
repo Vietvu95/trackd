@@ -1,15 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<body>
+<div class=container>
+  <div class=card1>
+    <h1>The easist way to track your</h1>
+  </div>
+  <div class=card2>
+    <h2>portfolio</h2></div>
+  <div class=card3>
+    <p>Easily track your cryptocurrency and stock portfolio with real-time updates. Try it out and see the difference it can make.</p>
+  </div>
+  <div class=card4>
+  <%= image_tag "Crypto" %>
+  </div>
+  <div class=card5> API WILL BE HERE
+  </div>
 
-<%= form_with method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find asset"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+</div>
+
 <% if !@assets.nil? %>
 <%= @assets["data"].first["symbol"] %>
 <%end %>
 <%= @error %>
+</body>
