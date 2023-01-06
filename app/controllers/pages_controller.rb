@@ -14,19 +14,11 @@ class PagesController < ApplicationController
   #     end
   #   end
 
-   def home
+  def home
     if params[:query].present?
-      begin
-        @stock_ticker = StockApiManager.new(params[:query]).get_stock_data
-      rescue => e
-        @error = "not valid ticker"
-      end
+      @symbol = params[:query].upcase
+      @stock_ticker = StockApiManager.new(params[:query]).get_stock_data
+      @market_cap_ticker = MarketStackApiManager.new(params[:query]).get_data
     end
-
-    myurl = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&interval=5min&apikey=L73EE7ZUNUZ4DKW0'
-    test = URI.open(myurl).read
-      @hello = JSON.parse(test)
-
-
   end
 end

@@ -9,8 +9,17 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-<% if !@assets.nil? %>
-<%= @assets["data"].first["symbol"] %>
-<%end %>
-<%= @error %>
-<%= @stock_ticker %>
+
+  <% @market_cap_ticker["data"].each do |ticker| %>
+    <% if @symbol == ticker["symbol"] %>
+      <%= ticker["name"] %> : <%= ticker["symbol"]  %><br>
+      Rank: <%= ticker["cmc_rank"] %> <br>
+      price: USD
+        <% ticker["quote"].each  do |x|%>
+          <% x.each do |y| %>
+            <%= y["price"] %>
+          <% end %>
+        <% end %>
+    <% end %>
+  <% end %>
+  <%= @stock_ticker %>
