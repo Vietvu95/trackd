@@ -1,0 +1,16 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<%= form_with method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find asset"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<% if !@assets.nil? %>
+<%= @assets["data"].first["symbol"] %>
+<%end %>
+<%= @error %>
+<%= @hello %>
