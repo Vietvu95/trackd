@@ -1,5 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<body>
+  <div class="container d-flex justify-content: space-around;">
+    <div class="float-child">
+      <div class="row">
+        <h1>The easist way</h1>
+      </div>
+      <div class="row">
+        <h1>to track your
+      </div>
+      <div class="row2">
+        <h2>portfolio</h2>
+      </div>
+      <div class="row3 col-sm-6">
+        <p>Easily track your cryptocurrency and stock portfolio with real-time updates. Try it out and see the difference it can make.</p>
+      </div>
+    </div>
+    <div class="float-child">
+      <div class="card4">
+      <%= image_tag "Crypto" %>
+      </div>
+    </div>
+  </div>
+  <div class="card5"> TOP 5 CRYPTO WILL BE SHOWN HERE (API) </div>
 
 <%= form_with method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
@@ -13,3 +34,7 @@
 <%= @assets["data"] %>
 <%end %>
 <%= @error %>
+
+
+
+</body>
