@@ -8,14 +8,16 @@ class PortfoliosController < ApplicationController
   def new
     if params[:query].present?
       begin
-       @assets = MarketStackApiManager.new(params[:query]).get_data
+         @assets = MarketStackApiManager.new(params[:query]).get_data
       rescue => e
-        @error = "not valid ticker"
-        # begin
-        #   @assets = coin.new(params[:query]).get_data
-        # rescue => e
-        #   @error = "not valid ticker"
-      #  end
+          @error = "not valid ticker"
+      end
+      if @error == "not valid ticker"
+        begin
+          @assets = CoinMarketCapApiManager.new(params[:query]).get_data
+        rescue => e
+          @error = "second API invalid"
+        end
       end
     end
     @portfolio = Portfolio.new

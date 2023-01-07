@@ -4,8 +4,12 @@ class MarketStackApiManager
   end
 
   def get_data
-      url = "http://api.marketstack.com/v1/eod?access_key=0f7424aef84ceea4f0ac1b4db80ec5c5&symbols=#{@asset}"
+      url = "http://api.marketstack.com/v1/eod?access_key=5a412551932a7b898075d900d4adc5e3&symbols=#{@asset}"
       assets_serialized = URI.open(url).read
       JSON.parse(assets_serialized)
   end
 end
+
+
+# begin
+#   @assets = CoinMarketCapApiManager.new(params[:query]).get_data
