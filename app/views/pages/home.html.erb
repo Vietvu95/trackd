@@ -31,7 +31,7 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 <% if !@assets.nil? %>
-<%= @assets["data"].first["symbol"] %>
+<%= @assets["data"] %>
 <%end %>
 <%= @error %>
 
