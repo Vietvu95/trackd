@@ -6,11 +6,12 @@
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
             <%= f.error_notification %>
             <div class="form-inputs">
+              <% email_value =  params[:email] ? params[:email] : '' %>
               <%= f.input :email,
                           required: true,
                           autofocus: true,
                           placeholder: "mark@example.com",
-                          input_html: { autocomplete: "email" }%>
+                          input_html: { autocomplete: "email", value: email_value }%>
               <%= f.input :password,
                           required: true,
                           placeholder: "******",
