@@ -11,6 +11,12 @@ class PagesController < ApplicationController
         @error = "not valid ticker"
       end
     end
+    begin
+      res = URI.open("https://api.marketaux.com/v1/news/all?api_token=#{ENV['MARKETAUX_API_KEY']}&language=en").read
+      @marketaux_hash = JSON.parse(res)
+    rescue => exception
+      @marketaux_hash = {"data" => []}
+    end
   end
 
   def assets_search

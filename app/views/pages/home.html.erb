@@ -1,14 +1,16 @@
-<!-- Homepage Banner-->
-
-
-
-
-
-<!-- End Homepage Banner-->
-
-
-
-<!--
+<body>
+<%= form_with method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find asset"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<% if !@assets.nil? %>
+<%= @assets["data"] %>
+<%end %>
+<%= @error %>
   <div class="container d-flex justify-content: space-around;">
     <div class="float-child">
       <div class="row">
@@ -30,18 +32,55 @@
       </div>
     </div>
   </div>
-  <div class="card5"> TOP 5 CRYPTO WILL BE SHOWN HERE (API) </div>
 
-<%= form_with method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find asset"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-<% if !@assets.nil? %>
-<%= @assets["data"] %>
-<%end %>
-<%= @error %>
--->
+ <%= form_with url: "/users/sign_up", method: :get do |form| %>
+    <%= form.label :email, "Email:" %>
+    <%= form.text_field :email %>
+    <%= form.submit "Get started" %>
+  <% end %>
+
+<div class="volatility">
+  <div class="assets d-flex justify-content-between">
+    <div class="stocks d-flex justify-content-center col-sm-6">
+      <div class="stocks-api w-100">
+        <h1>TOP 5 CRYPTOS (API)</h1>
+        <p>EXAMPLE</p>
+        <p>EXAMPLE</p>
+        <p>EXAMPLE</p>
+        <p>EXAMPLE</p>
+        <p>EXAMPLE</p>
+      </div>
+    </div>
+    <div class="crypto d-flex justify-content-center col-sm-6">
+      <div class="crypto-api w-100">
+        <h1>TOP 5 STOCKS (API)</h1>
+          <p>EXAMPLE</p>
+          <p>EXAMPLE</p>
+          <p>EXAMPLE</p>
+          <p>EXAMPLE</p>
+          <p>EXAMPLE</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="news row d-flex justify-content-center">
+    <h1>TRENDING NEWS</h1>
+      <div class="trending-news d-flex justify-content-center col-sm-10" >
+        <% @marketaux_hash["data"].each do |news_item_hash| %>
+          <div class="newsapi col-6 col-md-4">
+            <h1><%= news_item_hash["title"] %></h1>
+            <p><%= news_item_hash["description"] %><p>
+            <%= link_to "See more", news_item_hash["url"] %>
+            <%= image_tag news_item_hash["image_url"], width: 100, class: 'w-100' %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+<div class="device">
+  <h1>Your portfolio in all kind of devices</h1>
+</div>
+
+
+</body>
