@@ -1,15 +1,9 @@
 <h1>Create your new portfolio!</h1>
 
 
-<%= form_with method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find asset"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+
+
+<%=simple_form_for(@portfolio) do |f|  %>
+  <%=f.input :name %>
+  <%=f.submit :submit, class: "btn btn-primary" %>
 <% end %>
-<% if !@assets.nil? %>
-<%= @assets["data"] %>
-<%end %>
-<%=  %>
