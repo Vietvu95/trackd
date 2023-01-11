@@ -1,16 +1,4 @@
 <body>
-<%= form_with method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find asset"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-<% if !@assets.nil? %>
-<%= @assets["data"] %>
-<%end %>
-<%= @error %>
   <div class="container d-flex justify-content: space-around;">
     <div class="float-child">
       <div class="row">
@@ -26,6 +14,7 @@
         <p>Easily track your cryptocurrency and stock portfolio with real-time updates. Try it out and see the difference it can make.</p>
       </div>
     </div>
+    <%# picture banner %>
     <div class="float-child">
       <div class="card4">
       <%= image_tag "Crypto" %>
@@ -33,6 +22,7 @@
     </div>
   </div>
 
+<%# form banner %>
  <%= form_with url: "/users/sign_up", method: :get do |form| %>
     <%= form.label :email, "Email:" %>
     <%= form.text_field :email %>
@@ -82,5 +72,16 @@
   <h1>Your portfolio in all kind of devices</h1>
 </div>
 
-
+<%= form_with method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find asset"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<% if !@assets.nil? %>
+<%= @assets["data"] %>
+<%end %>
+<%= @error %>
 </body>
