@@ -12,7 +12,8 @@ class PagesController < ApplicationController
       end
     end
     begin
-      res = URI.open("https://api.marketaux.com/v1/news/all?api_token=#{ENV['MARKETAUX_API_KEY']}&language=en").read
+      #res = URI.open("https://api.marketaux.com/v1/news/all?api_token=#{ENV['MARKETAUX_API_KEY']}&language=en").read
+      res = URI.open("https://api.thenewsapi.com/v1/news/all?api_token=82wXWJJM3Jk4kGU4cQf7YZMSgJ5q4KV0NGDkk8gl&language=en").read
       @marketaux_hash = JSON.parse(res)
     rescue => exception
       @marketaux_hash = {"data" => []}
