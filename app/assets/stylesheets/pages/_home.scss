@@ -2,38 +2,91 @@
 
 
 // NORONG VERSION //
-// body {
-//   background-color: #061121;
-// }
+.logo {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-// .logo {
-//   color: white;
-//   font-size: 28px;
-//   font-weight: bold;
-// }
+.hamburger {
+  display: none;
+}
 
-// .hamburger {
-//   display: none;
-// }
+header {
+  width: 100%;
+  height: 80px;
+  background-color: #061121;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+}
 
-// header {
-//   width: 100%;
-//   height: 80px;
-//   background-color: #061121;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 0 100px;
-// }
+@media only screen and (max-width: 1320px) {
+  header {
+    padding: 0 50px;
+  }
+}
 
-// .logo-img {
+@media only screen and (max-width: 1100px) {
+  header {
+    padding: 0 30px;
+  }
+}
 
-// }
+@media only screen and (max-width: 900px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
 
+  .hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: #fefefe;
+    margin: 6px 0;
+  }
+
+  .nav-bar {
+    height: 0px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background: #11101b;
+    transition: 0.5s;
+    overflow: hidden;
+
+  }
+
+  .nav-bar.active {
+    height: 450px;
+  }
+
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+  }
+
+}
 // NORONG VERSION ENDS //
 
 
 // Specific CSS for your home-page
+
 
 h1 {
   color: white;
