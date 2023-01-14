@@ -436,9 +436,38 @@ width: 100%;
   border-radius: var(--border-radius-1);
 }
 
+.dashboard .right .profile {
+  display: flex;
+  gap: 2rem;
+  text-align: right;
+}
 
+.dashboard .right .recent-updates {
+  margin-top: 1rem;
+}
 
+.dashboard .right .recent-updates h2 {
+  margin-bottom: 0.8rem;
+}
 
+.dashboard .right .recent-updates .updates {
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+.dashboard .right .recent-updates .updates:hover {
+  box-shadow: none;
+}
+
+.dashboard .right .recent-updates .updates .update {
+  display: grid;
+  grid-template-columns: 10rem auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
 // End today upgrade =====
 
 
