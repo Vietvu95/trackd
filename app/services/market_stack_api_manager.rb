@@ -11,5 +11,4 @@ class MarketStackApiManager
 end
 
 
-# begin
-#   @assets = CoinMarketCapApiManager.new(params[:query]).get_data
+

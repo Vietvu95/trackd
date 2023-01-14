@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-   before_action :set_portfolio, only: [:new, :create, :show, :edit, :update, :destroy]
+   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
     @portfolios = Portfolio.all
@@ -36,6 +36,11 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio = Portfolio.find(params[:id])
     @portfolio_assets = @porfolio&.portfolio_assets&.any? ? @portfolio.portfolio_assets : []
+  end
+
+  def add_asset
+   @portfolio = Portfolio.find_by(user: current_user)
+    @asset = Asset.find(params[:asset_id])
   end
 
 

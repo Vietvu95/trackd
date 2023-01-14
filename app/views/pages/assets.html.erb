@@ -1,0 +1,8 @@
+<h1>Assets</h1>
+
+<ul>
+  <% @assets.each do |asset| %>
+    <li><%= link_to asset.name, portfolios_add_asset_path(asset: asset.id)%></li>
+    <li><%= asset.price %></li>
+  <% end %>
+</ul>

@@ -7,9 +7,8 @@ class AssetsController < ApplicationController
     uri = URI.open(url).read
     @tickers = JSON.parse(uri)
 
-  def initialize
-      @stocks = {}
-      @cryptos = {}
+  def index
+    @assets = Asset.all
   end
 
   def edit

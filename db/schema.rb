@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_102339) do
   create_table "portfolio_assets", force: :cascade do |t|
     t.bigint "portfolio_id", null: false
     t.bigint "asset_id", null: false
-    t.float "quantity"
+    t.float "quantity" 
     t.float "purchase_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
