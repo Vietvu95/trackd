@@ -537,6 +537,17 @@ width: 100%;
   font-weight: 600;
 }
 
+// ========== Media Queries ===========
+@media only screen and (max-width: 600px) {
+  html.dashboard {
+    body {
+      background: red;
+    }
+}
+}
+
+// ========== End of Media Queries ====
+
 
 
 // End of Analytics
