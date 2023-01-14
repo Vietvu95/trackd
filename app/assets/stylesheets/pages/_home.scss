@@ -4,6 +4,45 @@
 
 // General rules
 
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300;400;500;600;700;800&family=Sacramento&display=swap');
+
+:root {
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1eb;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f9;
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+ .homepage{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  appearance: none;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+
+  height:800px
+}
 
 // End General rules
 
@@ -26,68 +65,6 @@ header {
   align-items: center;
   padding: 0 100px;
 }
-
-@media only screen and (max-width: 1320px) {
-  header {
-    padding: 0 50px;
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  header {
-    padding: 0 30px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-
-  .hamburger .line {
-    width: 30px;
-    height: 3px;
-    background-color: #fefefe;
-    margin: 6px 0;
-  }
-
-  .nav-bar {
-    height: 0px;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    background: #11101b;
-    transition: 0.5s;
-    overflow: hidden;
-
-  }
-
-  .nav-bar.active {
-    height: 450px;
-  }
-
-  .nav-bar ul {
-    display: block;
-    width: fit-content;
-    margin: 80px auto 0 auto;
-    text-align: center;
-    transition: 0.5s;
-    opacity: 0;
-  }
-
-  .nav-bar.active ul {
-    opacity: 1;
-  }
-
-  .nav-bar ul li a {
-    margin-bottom: 12px;
-  }
-
-}
-
 
 
 // NORONG VERSION ENDS //
@@ -117,9 +94,9 @@ body {
   // background: linear-gradient(to right, #434343, #000000);
   // background: linear-gradient(to right, #414141, #000000);
   // background: linear-gradient(to right, #000000, #2C3E50);
-  // background: linear-gradient(to right, #000000, #434343);
-   // background: linear-gradient(to right, #000000, #061121);
-   background-color: rgb(79, 65, 65);
+   background: linear-gradient(to right, #000000, #434343);
+  // background: linear-gradient(to right, #000000, #061121);
+
 }
 
 p {
@@ -148,7 +125,7 @@ p {
 .card5 {
   background-color: white;
   margin-top: 120px;
-  height: 120px;
+  height: 80px;
 }
 
 .row2 {
@@ -161,7 +138,7 @@ p {
 
 .assets {
   h1 {
-    font-size: 25px;
+    font-size: 25px;;
   }
 
 }
@@ -183,21 +160,21 @@ p {
 }
 
 .assets {
-  h1 {
-    color:black;
-  }
-  p{
-    color:black
+  h1, p {
+    color: black ;
   }
 }
 
 .news {
-  background-color: #3A4245;
-  height: 650px;
-  padding-bottom: 45px;
+  background-image: url('assets/newsf.jpeg') ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 850px;
     h1 {
      text-align: center;
      margin-top: 35px;
+     color: white;
+
   }
 }
 
@@ -225,5 +202,17 @@ p {
     text-align: center;
     text-shadow:#2D3436
   }
+}
 
+.email-input {
+  input {
+    line-height: 45px;
+    padding: 5px 8px;
+    min-width: 480px;
+    align-content: center;
+  }
+}
+
+.getstarted {
+  padding: 16px;
 }
