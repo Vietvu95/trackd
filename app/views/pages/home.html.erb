@@ -33,22 +33,20 @@
   <div class="assets d-flex justify-content-between">
     <div class="stocks d-flex justify-content-center col-sm-6">
       <div class="stocks-api w-100">
-        <h1>TOP 5 CRYPTOS (API)</h1>
-        <p>EXAMPLE</p>
-        <p>EXAMPLE</p>
-        <p>EXAMPLE</p>
-        <p>EXAMPLE</p>
-        <p>EXAMPLE</p>
+        <h1>TOP 3 CRYPTOS (API)</h1>
+        <ul>
+  <% @assets[0..2].each do |asset| %>
+    <li><%= asset.name%></li>
+  <% end %>
+</ul>
       </div>
     </div>
     <div class="crypto d-flex justify-content-center col-sm-6">
       <div class="crypto-api w-100">
-        <h1>TOP 5 STOCKS (API)</h1>
-          <p>EXAMPLE</p>
-          <p>EXAMPLE</p>
-          <p>EXAMPLE</p>
-          <p>EXAMPLE</p>
-          <p>EXAMPLE</p>
+        <h1>TOP 3 STOCKS (API)</h1>
+        <% @assets[0..2].each do |asset| %>
+    <li><%= asset.name%></li>
+  <% end %>
       </div>
     </div>
   </div>
@@ -80,8 +78,4 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-<% if !@assets.nil? %>
-<%= @assets["data"] %>
-<%end %>
-<%= @error %>
 </body>

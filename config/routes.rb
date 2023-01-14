@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'dashboard/dashboard', to: 'dashboard#dashboard'
   devise_for :users
+  resources :assets
   root to: "pages#home"
-  resources :portfolios
-  get 'pages/assets_search', to: 'pages#assets_search'
+  resources :portfolios do
+    resources :portfolio_assets, only: [:create]
+  end
 end
