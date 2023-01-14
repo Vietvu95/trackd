@@ -1,3 +1,19 @@
 <%= @portfolio.name %>
 
-<%=link_to "Search for Assets :D ", pages_assets_search_path %>
+<%# <%=link_to "Search for Assets :D ", pages_assets_search_path %>
+
+<%= form_with method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find asset"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if @assets %>
+  <%= @asset_name %>
+  <%= @asset_price %>
+<% else %>
+  <%= @message %>
+<% end %>

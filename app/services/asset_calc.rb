@@ -77,10 +77,11 @@ end
 # t.index ["portfolio_id"], name: "index_portfolio_assets_on_portfolio_id"
 # end
 
-#1) do migration to remove date bought from assets table
-#2) move asset search to portfolio page#show- Need to draw portfolio_id from params to create portfolio_asset
-#3) when displaying asset- add form field to enter quantity and add button to add asset to portfolio
-#4) draw name and price from API call for asset from coinmarket cap API
-#5)draw name and price from API call for asset from market stack API
-#6) implement the purchase price calculation
+# DONE 1) do migration to remove date bought from assets table done
+
+#2 DONE ) move asset search to portfolio page#show- Need to draw portfolio_id from params to create portfolio_asset
+#3) DONE draw name and price from API call for asset from coinmarket cap API
+#4) DONE draw name and price from API call for asset from market stack API
+#5)DONE  implement the purchase price calculation
+#6) when displaying asset- add form field to enter quantity and add button to add asset to portfolio
 #7) when clicking into add button creates a asset and portfolio_asset
