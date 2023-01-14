@@ -1,6 +1,14 @@
 <%= @portfolio.name %>
-
-<%# <%=link_to "Search for Assets :D ", pages_assets_search_path %>
+<p>My Portfolio Assets: </p>
+<% if !@portfolio.portfolio_assets.empty? %>
+<% @portfolio.portfolio_assets.each do |portfolio_asset| %>
+  <p><%= portfolio_asset.asset.name %></p>
+  <p><%= portfolio_asset.quantity %></p>
+  <p><%= portfolio_asset.purchase_price %></p>
+<% end %>
+<% else %>
+  <p>No assets yet, please add</p>
+<% end %>
 
 <%= form_with method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,

@@ -1,2 +1,0 @@
-class CryptoAssetController < ApplicationController
-end

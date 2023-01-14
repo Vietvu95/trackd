@@ -62,11 +62,6 @@ class PortfoliosController < ApplicationController
     @portfolio_asset = PortfolioAsset.new
   end
 
-  def add_asset
-   @portfolio = Portfolio.find_by(user: current_user)
-    @asset = Asset.find(params[:asset_id])
-  end
-
   private
   def portfolio_params
     params.require(:portfolio).permit(:name)

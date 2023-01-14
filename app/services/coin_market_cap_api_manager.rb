@@ -1,4 +1,6 @@
 class CoinMarketCapApiManager
+  attr_reader :data
+
   def initialize(asset)
     @asset = asset
     @data = get_data
