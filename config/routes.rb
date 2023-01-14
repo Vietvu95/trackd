@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :assets
   # get 'assets/index', to: 'assets#index'
   root to: "pages#home"
-  resources :portfolios
+  resources :portfolios do
+    resources :portfolio_assets, only: [:create]
+  end
   get 'pages/assets_search', to: 'pages#assets_search'
   get 'pages/assets', to: 'pages#assets'
   post 'portfolios/add_asset', to: 'portfolios#add_asset'

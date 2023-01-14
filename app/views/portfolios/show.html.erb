@@ -14,6 +14,12 @@
 <% if @assets %>
   <%= @asset_name %>
   <%= @asset_price %>
+  <%= simple_form_for([@portfolio, @portfolio_asset]) do |f|  %>
+  <%= f.input :quantity %>
+  <%= f.hidden_field "asset_id", value: @asset.id %>
+  <%= f.hidden_field "purchase_price", value: @asset_price %>
+  <%= f.submit :submit, class: "btn btn-primary" %>
+  <% end %>
 <% else %>
   <%= @message %>
 <% end %>
