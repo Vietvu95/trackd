@@ -25,6 +25,18 @@
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+// DARK THEME COLOR BACKGROUND
+.dark-theme-variables {
+  --color-background: #181a1e;
+  --color-white: #202528;
+  --color-dark: #edeffd;
+  --color-dark-variant: #a3bdcc;
+  --color-light: rbga(0, 0, 0, 0.4);
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+// END DARK THEME
+
 .dashboard * {
   margin: 0;
   padding: 0;
@@ -149,7 +161,7 @@ height: 2rem;
 }
 
 .dashboard aside .close {
-  //display: none;
+  display: none;
 }
 
 // ===== Side Bar ======
@@ -603,7 +615,7 @@ width: 100%;
 
     aside {
       position: fixed;
-      left: 0;
+      left: -100%;
       background: var(--color-white);
       width: 18rem;
       z-index: 3;
@@ -611,6 +623,13 @@ width: 100%;
       height: 100vh;
       padding-right: var(--card-padding);
       display: none;
+      animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+      to {
+        left: 0;
+      }
     }
 
     aside .img_tag {
@@ -636,7 +655,7 @@ width: 100%;
     }
 
     aside .close {
-      position: inline-block;
+      //display: inline-block;
       cursor: pointer;
     }
 
