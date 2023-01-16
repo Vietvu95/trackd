@@ -1,4 +1,5 @@
-<body>
+<div class="homepage">
+
   <div class="container d-flex justify-content: space-around;">
     <div class="float-child">
       <div class="row">
@@ -13,6 +14,18 @@
       <div class="row3 col-sm-6">
         <p>Easily track your cryptocurrency and stock portfolio with real-time updates. Try it out and see the difference it can make.</p>
       </div>
+
+      <form class="row row-cols-lg-auto g-3 align-items-center">
+    <%= form_with url: "/users/sign_up", method: :get do |form| %>
+        <div class="email-input col-12">
+        <%= form.text_field :email, placeholder: "Email address" %>
+        </div>
+        <div class="col-12">
+        <%= form.submit "Get started", class: "btn btn-primary getstarted" %>
+        </div>
+      <% end %>
+    </form>
+
     </div>
     <%# picture banner %>
     <div class="float-child">
@@ -22,18 +35,11 @@
     </div>
   </div>
 
-<%# form banner %>
- <%= form_with url: "/users/sign_up", method: :get do |form| %>
-    <%= form.label :email, "Email:" %>
-    <%= form.text_field :email %>
-    <%= form.submit "Get started" %>
-  <% end %>
-
 <div class="volatility">
   <div class="assets d-flex justify-content-between">
     <div class="stocks d-flex justify-content-center col-sm-6">
       <div class="stocks-api w-100">
-        <h1>TOP 3 CRYPTOS (API)</h1>
+        <h1>Tredig Stocks (API)</h1>
         <ul>
   <% @assets[0..2].each do |asset| %>
     <li><%= asset.name%></li>
@@ -43,7 +49,7 @@
     </div>
     <div class="crypto d-flex justify-content-center col-sm-6">
       <div class="crypto-api w-100">
-        <h1>TOP 3 STOCKS (API)</h1>
+        <h1>Trending Cryptos (API)</h1>
         <% @assets[0..2].each do |asset| %>
     <li><%= asset.name%></li>
   <% end %>
@@ -55,27 +61,20 @@
   <div class="news row d-flex justify-content-center">
     <h1>TRENDING NEWS</h1>
       <div class="trending-news d-flex justify-content-center col-sm-10" >
-        <% @marketaux_hash["data"].each do |news_item_hash| %>
-          <div class="newsapi col-6 col-md-4">
-            <h1><%= news_item_hash["title"] %></h1>
-            <p><%= news_item_hash["description"] %><p>
-            <%= link_to "See more", news_item_hash["url"] %>
-            <%= image_tag news_item_hash["image_url"], width: 100, class: 'w-100' %>
+                <% @thenewsapi_hash["data"].first(3).each do |news_item_hash| %>
+          <div class="card" style="width: 18rem;">
+            <%= image_tag news_item_hash["image_url"], class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= news_item_hash["title"] %></h5>
+              <p class="card-text"><%= news_item_hash["description"] %></p>
+              <%= link_to "See more", news_item_hash["url"], class: "btn btn-primary"%>
+            </div>
           </div>
         <% end %>
       </div>
   </div>
 
-<div class="device">
-  <h1>Your portfolio in all kind of devices</h1>
+  <div class="device">
+    <h1>Your portfolio in all kind of devices</h1>
+  </div>
 </div>
-
-<%= form_with method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find asset"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-</body>
