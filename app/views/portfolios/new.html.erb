@@ -1,9 +1,9 @@
-<h1>Create your new portfolio!</h1>
-
-
-
-
-<%=simple_form_for(@portfolio) do |f|  %>
-  <%=f.input :name %>
-  <%=f.submit :submit, class: "btn btn-primary" %>
+<body class="portfolio">
+  <div class="container">
+    <h1>Create your new portfolio!</h1>
+    <%=simple_form_for(@portfolio) do |f|  %>
+    <%=f.input :name %>
+    <%=f.submit :submit, class: "btn btn-primary" %>
 <% end %>
+  </div>
+</body>
