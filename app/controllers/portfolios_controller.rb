@@ -35,10 +35,8 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find(params[:id])
-    #@portfolio_assets = @porfolio&.portfolio_assets&.any? ? @portfolio.portfolio_assets : []
     @portfolio_asset = PortfolioAsset.new
     if params[:query].present?
-      # @assets = MarketStackApiManager.new(params[:query]).get_data
       begin
         api= MarketStackApiManager.new(params[:query])
         @assets = api.data
