@@ -38,6 +38,7 @@ class PortfoliosController < ApplicationController
     @portfolio_asset = PortfolioAsset.new
     if params[:query].present?
       begin
+        raise
         api= MarketStackApiManager.new(params[:query])
         @assets = api.data
       rescue => e
