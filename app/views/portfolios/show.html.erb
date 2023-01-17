@@ -1,33 +1,36 @@
-<%= @portfolio.name %>
-<p>My Portfolio Assets: </p>
-<% if !@portfolio.portfolio_assets.empty? %>
-<% @portfolio.portfolio_assets.each do |portfolio_asset| %>
-  <p><%= portfolio_asset.asset.name %></p>
-  <p><%= portfolio_asset.quantity %></p>
-  <p><%= portfolio_asset.purchase_price %></p>
-<% end %>
-<% else %>
-  <p>No assets yet, please add</p>
-<% end %>
-
-<%= form_with method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find asset"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<% if @assets %>
-  <%= @asset_name %>
-  <%= @asset_price %>
-  <%= simple_form_for([@portfolio, @portfolio_asset]) do |f|  %>
-  <%= f.input :quantity %>
-  <%= f.hidden_field "asset_id", value: @asset.id %>
-  <%= f.hidden_field "purchase_price", value: @asset_price %>
-  <%= f.submit :submit, class: "btn btn-primary" %>
+<body class="portfolio">
+  <%= @portfolio.name %>
+  <p>My Portfolio Assets: </p>
+  <% if !@portfolio.portfolio_assets.empty? %>
+  <% @portfolio.portfolio_assets.each do |portfolio_asset| %>
+    <p><%= portfolio_asset.asset.name %></p>
+    <p><%= portfolio_asset.quantity %></p>
+    <p><%= portfolio_asset.purchase_price %></p>
   <% end %>
-<% else %>
-  <%= @message %>
-<% end %>
+  <% else %>
+    <p>No assets yet, please add</p>
+  <% end %>
+
+  <%= form_with method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find asset"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
+  <% if @assets %>
+    <%= @asset_name %>
+    <%= @asset_price %>
+    <%= simple_form_for([@portfolio, @portfolio_asset]) do |f|  %>
+    <%= f.input :quantity %>
+    <%= f.hidden_field "asset_id", value: @asset.id %>
+    <%= f.hidden_field "purchase_price", value: @asset_price %>
+    <%= f.submit :submit, class: "btn btn-primary" %>
+    <% end %>
+  <% else %>
+    <%= @message %>
+  <% end %>
+
+</body>
