@@ -139,7 +139,6 @@ p {
   h1 {
     font-size: 25px;
   }
-
 }
 
 .crypto-api {
@@ -233,6 +232,7 @@ p {
   padding: 16px;
 }
 
-.fnews-body, .news-image {
-  padding: 25px;
+.image {
+  padding-left: 25px;
+  padding-bottom: 25px;
 }
