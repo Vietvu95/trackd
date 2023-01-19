@@ -38,15 +38,14 @@ class PortfoliosController < ApplicationController
     @portfolio_asset = PortfolioAsset.new
     if params[:query].present?
       begin
-        raise
-        api= MarketStackApiManager.new(params[:query])
+        api = CoinMarketCapApiManager.new(params[:query])
         @assets = api.data
       rescue => e
         @error = "first api invalid"
       end
       if @error == "first api invalid" || @assets["data"].empty?
         begin
-          api = CoinMarketCapApiManager.new(params[:query])
+          api= MarketStackApiManager.new(params[:query])
           @assets = api.data
         rescue => e
           @error = "second API invalid"
