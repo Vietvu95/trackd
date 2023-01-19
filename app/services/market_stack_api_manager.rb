@@ -17,7 +17,7 @@ class MarketStackApiManager
   private
 
   def get_data
-    url = "http://api.marketstack.com/v1/eod?access_key=537aeb8705ab02c0c388c3e5e9765e48&symbols=#{@asset}"
+    url = "http://api.marketstack.com/v1/eod?access_key=34173b46293810d1f86345ffde9ebb5b&symbols=#{@asset}"
     assets_serialized = URI.open(url).read
     JSON.parse(assets_serialized)
   end

@@ -82,7 +82,7 @@
           <div class="middle">
             <div class="left">
               <h3>Value owned</h3>
-              <h1>25$,024</h1>
+              <h1><%= @total_current_value %></h1>
             </div>
             <div class="progress-dash">
               <svg>
@@ -124,7 +124,7 @@
           <div class="middle">
             <div class="left">
               <h3>P/L</h3>
-              <h1>$10,864</h1>
+              <h1><%=@total_pl  %></h1>
             </div>
             <div class="progress-dash">
               <svg>
@@ -229,7 +229,7 @@
         <%= image_tag "https://mdbootstrap.com/img/new/avatars/1.jpg", :class => "update-photo" %>
       </div>
       <div class="message">
-        <p><b>Viet Vue</b> The Cryptocurrency market is not stable yet. Do not buy it now.</p>
+        <p><b>Viet Vu</b> The Cryptocurrency market is not stable yet. Do not buy it now.</p>
         <small class="text-muted">2 Minutes ago</small>
       </div>
     </div>
