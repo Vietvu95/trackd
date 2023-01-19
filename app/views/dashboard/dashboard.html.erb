@@ -1,13 +1,11 @@
 <html class="dashboard">
 <body class="dashboard">
-  <h1>Dashboard#dashboard</h1>
-  <p>Find me in app/views/dashboard/dashboard.html.erb</p>
   <div class="container-dash">
     <aside>
       <div class="top">
         <div class="logo-dash">
           <%= image_tag "T_logo.png", :class => "img_tag" %>
-          <h2><span class="danger">T</span>rack</h2>
+          <h2><span class="danger">T</span>rackd</h2>
         </div>
         <div class="close" id="close-btn">
           <span><i class="material-icons sharp">close</i></span>
@@ -22,48 +20,12 @@
 
         <a href="" class="active">
           <span><i class="material-icons sharp">person_outline</i></span>
-          <h3>Customers</h3>
-        </a>
-
-        <a href="">
-          <span><i class="material-icons sharp">receipt_long</i></span>
-          <h3>Orders</h3>
-        </a>
-
-        <a href="">
-          <span><i class="material-icons sharp">insights</i></span>
-          <h3>Analytics</h3>
-        </a>
-
-        <a href="">
-          <span><i class="material-icons sharp">mail_outline</i></span>
-          <h3>Messages</h3>
-          <span class="message-count">26</span>
-        </a>
-
-        <a href="">
-          <span><i class="material-icons sharp">inventory</i></span>
-          <h3>Products</h3>
-        </a>
-
-        <a href="">
-          <span><i class="material-icons sharp">report</i></span>
-          <h3>Reports</h3>
-        </a>
-
-        <a href="">
-          <span><i class="material-icons sharp">settings</i></span>
-          <h3>Setting</h3>
+          <h3>Dashboard</h3>
         </a>
 
           <a href="">
           <span><i class="material-icons sharp">add</i></span>
           <h3>Add Product</h3>
-        </a>
-
-        <a href="">
-          <span><i class="material-icons sharp">logout</i></span>
-          <h3>Logout</h3>
         </a>
       </div>
     </aside>
@@ -81,7 +43,7 @@
           <span><i class="material-icons sharp">analytics</i></span>
           <div class="middle">
             <div class="left">
-              <h3>Value owned</h3>
+              <h3>Portfolio Value </h3>
               <h1><%= @total_current_value %></h1>
             </div>
             <div class="progress-dash">
@@ -102,8 +64,8 @@
           <span><i class="material-icons sharp">bar_chart</i></span>
           <div class="middle">
             <div class="left">
-              <h3>Total Revenue</h3>
-              <h1>$10,864</h1>
+              <h3>Total Spent</h3>
+              <h1><%= @total_purchase_value %></h1>
             </div>
             <div class="progress-dash">
               <svg>
@@ -123,7 +85,7 @@
           <span><i class="material-icons sharp">stacked_line_chart</i></span>
           <div class="middle">
             <div class="left">
-              <h3>P/L</h3>
+              <h3>Profits/Losses</h3>
               <h1><%=@total_pl  %></h1>
             </div>
             <div class="progress-dash">
@@ -145,54 +107,21 @@
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Symbold</th>
+          <th>Symbol</th>
           <th>Current Price</th>
-          <th>Market Cap</th>
-          <th>Description</th>
+          <th>Quantity</th>
+          <th>Profit/Loss</th>
         </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Bitcoin</td>
-        <td>ETH</td>
-        <td>$160000</td>
-        <td class="warning">Loading</td>
-        <td class="primary">Market description</td>
-      </tr>
-
-            <tr>
-        <td>ETH</td>
-        <td>Ethereum</td>
-        <td>$160000</td>
-        <td class="warning">Loading</td>
-        <td class="primary">Market description</td>
-      </tr>
-
-            <tr>
-        <td>Tether</td>
-        <td>USDT</td>
-        <td>$160000</td>
-        <td class="warning">Loading</td>
-        <td class="primary">Market description</td>
-      </tr>
-
-      <tr>
-        <td>BNB</td>
-        <td>BNB</td>
-        <td>$160000</td>
-        <td class="warning">Loading</td>
-        <td class="primary">Market description</td>
-      </tr>
-
-      <tr>
-        <td>USD</td>
-        <td>Coin</td>
-        <td>$160000</td>
-        <td class="warning">Loading</td>
-        <td class="primary">Market description</td>
-      </tr>
-
+        <% @portfolio_assets.each do |pa| %>
+          <tr>
+            <td><%= pa.asset.name %></td>
+            <td>$<%= pa.get_current_price %></td>
+            <td class="warning"><%= pa.quantity %></td>
+            <td class="primary">$<%= pa.profit_and_loss %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
     <a href="#">Show All</a>

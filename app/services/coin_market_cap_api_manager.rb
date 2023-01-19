@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class CoinMarketCapApiManager
   attr_reader :data
 

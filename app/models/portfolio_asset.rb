@@ -7,7 +7,21 @@ class PortfolioAsset < ApplicationRecord
   end
 
   def get_current_price
-    get_price_from_api * quantity
+    api_price = get_price_from_api
+    if api_price.class == String
+      return 'NA'
+    else
+      (api_price * quantity).round(2)
+    end
+  end
+
+  def profit_and_loss
+    current_price = get_current_price
+    if current_price.class == String
+      return 'NA'
+    else
+      (get_current_price - purchase_price).round(2)
+    end
   end
 
   private

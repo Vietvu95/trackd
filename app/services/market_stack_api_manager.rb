@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class MarketStackApiManager
   attr_reader :data
 
