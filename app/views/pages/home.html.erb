@@ -1,5 +1,5 @@
-<div class="homepage">
-
+<body class="homepage">
+  <div class="homepage">
   <div class="container d-flex justify-content: space-around;">
     <div class="float-child">
       <div class="row">
@@ -14,18 +14,6 @@
       <div class="row3 col-sm-6">
         <p>Easily track your cryptocurrency and stock portfolio with real-time updates. Try it out and see the difference it can make.</p>
       </div>
-
-      <form class="row row-cols-lg-auto g-3 align-items-center">
-    <%= form_with url: "/users/sign_up", method: :get do |form| %>
-        <div class="email-input col-12">
-        <%= form.text_field :email, placeholder: "Email address" %>
-        </div>
-        <div class="col-12">
-        <%= form.submit "Get started", class: "btn btn-primary getstarted" %>
-        </div>
-      <% end %>
-    </form>
-
     </div>
     <%# picture banner %>
     <div class="float-child">
@@ -34,6 +22,88 @@
       </div>
     </div>
   </div>
+
+    <!-- Norong search funcs-->
+<section class="container home-search">
+ <form action="" class="search-form">
+   <div class="input-container">
+      <input type="text" id="cryptoSearch" class="crypto-search">
+      <img src="./assets/search.png" alt="">
+    </div>
+</form>
+
+<div class="wrapper">
+  <div class="search-area">
+    <div class="single-search">
+      <input class="custom-input" type="text" name="" placeholder="What are you looking for ...">
+      <a href="#" class="icon-area"><i class="fa fa-search"></i></a>
+    </div>
+</div>
+</div>
+
+
+    <!-- Search table-->
+  <div class="recent-orders">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Symbold</th>
+          <th>Current Price</th>
+          <th>Market Cap</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Bitcoin</td>
+        <td>ETH</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+            <tr>
+        <td>ETH</td>
+        <td>Ethereum</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+            <tr>
+        <td>Tether</td>
+        <td>USDT</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+      <tr>
+        <td>BNB</td>
+        <td>BNB</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+      <tr>
+        <td>USD</td>
+        <td>Coin</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+      </tbody>
+    </table>
+    <a href="#">Show All</a>
+  </div>
+
+    <!-- End of search table-->
+</section>
+
+  <!-- End Norong search funcs-->
 
 <div class="volatility">
   <div class="assets d-flex justify-content-between">
@@ -151,3 +221,35 @@
     <h1>Your portfolio in all kind of devices</h1>
   </div>
 </div>
+
+<script>
+
+const list = document.querySelector("#results")
+
+const insertMovies = (data) => {
+  data.Search.forEach((result) => {
+    const movieTag = `<li class="list-group-item border-0">
+      <img src="${result.Poster}" alt="" width="100">
+    </li>`
+    list.insertAdjacentHTML("beforeend", movieTag)
+  })
+}
+
+const fetchMovies = (query) => {
+  fetch(`http://www.omdbapi.com/?s=${query}&apikey=adf1f2d7`)
+    .then(response => response.json())
+    .then(data => insertMovies(data))
+}
+
+fetchMovies("") // on 1st page load
+
+const form = document.querySelector(".search-form")
+form.addEventListener("keyup", (event) => {
+  event.preventDefault()
+  list.innerHTML = ""
+  const input = document.querySelector(".crypto-search")
+  fetchMovies(input.value)
+})
+
+</script>
+</body>

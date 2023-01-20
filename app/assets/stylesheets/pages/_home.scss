@@ -66,6 +66,130 @@ header {
   padding: 0 100px;
 }
 
+.homepage  {
+  .home-search {
+    background-color: #3C97CB;
+  }
+
+}
+
+// Norong Search function ===============
+.homepage section {
+  min-height: 40vh;
+  //padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;width: 100%;
+  padding: 3rem 1rem 3rem;
+  margin: 0 auto;
+  z-index: 10000;
+}
+
+@media (min-width: 500px) {
+  .homepage section {
+    padding: 3rem 2rem 3rem;
+  }
+}
+
+.homepage section .input-container{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 425px;
+}
+
+.homepage section .input-container img {
+
+    position: absolute;
+    top: 7%;
+    left: 4%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+}
+
+.homepage section .input-container input {
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  border: none;
+  width: 100%;
+  outline: none;
+  padding-left: 3rem;
+  font-size: 1.125rem;
+  color: #a6a6a6;
+}
+
+.homepage section .input-container .btn1 {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ff960b;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 50px;
+  border-radius: 30px;
+}
+
+.homepage {
+body, html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f3b927;
+  }
+  .wrapper{
+  height: 100%;
+  }
+  .search-area{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  }
+  .single-search {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 40px;
+  background-color: #fafafa;
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: 0 8px 10px rgba(0,0,0,0.3);
+  }
+  .custom-input{
+  border: 0;
+  outline: 0;
+  width: 0;
+  line-height: 40px;
+  transition: width 0.4s linear;
+  }
+  input::placeholder {
+  color: #262626;
+  font-size: 20px;
+  }
+     .icon-area {
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  text-decoration: none;
+  color: #262626;
+  }
+  .single-search:hover > .custom-input{
+  padding: 0 10px;
+  width: 500px;
+  caret-color:#262626;
+  transition: width 0.4s linear;
+  }
+  .single-search:hover > .icon-area{
+  background: white;
+  color: #262626;
+  }
+
+}
+
+// End of Norong Search function ===============
 // NORONG VERSION ENDS //
 
 
