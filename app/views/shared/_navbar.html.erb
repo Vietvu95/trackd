@@ -1,24 +1,26 @@
-<header>
+
+<div>
   <div class="hamburger">
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
   </div>
   <nav class="nav-bar">
-    <ul>
-      <li><%= link_to "Home", root_path, class: "nav-link" %></li>
-      <% if current_user %>
-        <li><%= link_to "Dashboard", dashboard_dashboard_path, class: "btn" %></li>
-        <li><%= link_to "Portfolios",  new_portfolio_path, class: "btn" %><i class="fa-sharp fa-solid fa-chevron-down"></a></i>
-        <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn" %></li>
-      <% else %>
-        <li><%= link_to "Log in", new_user_session_path, class: "btn" %></li>
-        <li><%= link_to "Sign up", new_user_registration_path, class: "btn btn-signup" %></li>
-      <% end %>
+    <ul class="d-flex align-items-center justify-content-between py-4">
+      <li class="d-inline-block"><%= link_to "Home", root_path, class: "nav-link" %></li>
+      <div>
+        <% if current_user %>
+          <li class="d-inline-block"><%= link_to "Dashboard", dashboard_dashboard_path, class: "btn" %></li>
+          <li class="d-inline-block"><%= link_to "Portfolios",  new_portfolio_path, class: "btn" %></i>
+          <li class="d-inline-block"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn" %></li>
+        <% else %>
+          <li class="d-inline-block"><%= link_to "Log in", new_user_session_path, class: "btn" %></li>
+          <li class="d-inline-block"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-signup" %></li>
+        <% end %>
+      </div>
     </ul>
   </nav>
-</header>
-
+</div>
 
 <!--
 <div class="logo-img mt-5 rounded"><%= image_tag "T_logo-fullwhite", :style => "border-radius: 20%; width: 40px"%></div>

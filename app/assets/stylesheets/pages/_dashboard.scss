@@ -74,7 +74,7 @@
 .dashboard h1 {
   font-weight: 800;
   font-size: 1.8rem;
-  color: black;
+  color: var(--color-dark);
 }
 
 .dashboard h2 {
@@ -139,7 +139,7 @@
 
 .dashboard aside {
   height: 100vh;
-  background: rgb(241, 237, 237);
+  background: var(--color-background);
 }
 
 .dashboard aside .top {

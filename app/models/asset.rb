@@ -1,5 +1,6 @@
 class Asset < ApplicationRecord
-  has_many :portfolio_assets
+  has_many :portfolio_assets, dependent: :destroy
+
 
   def self.find_or_create_by_name(name)
     asset = Asset.find_by(name: name.upcase)

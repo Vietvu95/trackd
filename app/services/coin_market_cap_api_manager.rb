@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class CoinMarketCapApiManager
   attr_reader :data
 
@@ -21,5 +23,4 @@ class CoinMarketCapApiManager
     assets_serialized = URI.open(url).read
     JSON.parse(assets_serialized)
   end
-
 end

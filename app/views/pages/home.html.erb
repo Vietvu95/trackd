@@ -128,7 +128,6 @@
   </div>
 </div>
 
-
 <!--
   <div class="news row d-flex justify-content-center">
     <h1>TRENDING NEWS</h1>
@@ -146,33 +145,38 @@
       </div>
   </div>
   -->
+
   <div class="news">
     <h1>Finance News</h1>
-    <div class="fin">
-      <div class="col-12 col-lg-9">
-        <article style="display: flex">
-          <div class="news-image">
-            <%= image_tag ("bitcoinnews.jpeg") %>
+    <div class="row gx-5">
+      <div class="col-12 col-lg-8">
+        <article class="row gx-3">
+          <div class="image col-12 col-md-12 col-lg-6 pr-4">
+            <%= image_tag "bitcoinnews.jpg", class: 'w-100' %>
           </div>
-          <div class="fnews-body">
+          <div class="news-text col-12 col-md-12 col-lg-6 pr-4">
             <h5 class="fnews-title">Bitcoin Price and Ethereum Prediction: BTC Network's Mining Difficulty Rises to All-Time High</h5>
             <p class="fnews-text">Bitcoin (BTC) and Ethereum (ETH), the world's two most popular digital currencies, maintained their lengthy upward trend and surpassed highs of $21,000 and $1,500, respectively. The mining difficulty of the Bitcoin network has recently reached an all-time high, making it more difficult for miners to make a profit.</p>
             <a href="https://cryptonews.com/news/bitcoin-price-and-ethereum-prediction-btc-networks-mining-difficulty-rises-to-all-time-high.htm">See more</a>
           </div>
         </article>
 
-        <article style="display: flex">
-          <%= image_tag ("blockchain.jpeg") %>
-          <div class="fnews-body">
+        <article class="row gx-3">
+          <div class="image col-12 col-md-12 col-lg-6 pr-4">
+            <%= image_tag "blockchain.jpg", class: 'w-100' %>
+          </div>
+          <div class="news-text col-12 col-md-12 col-lg-6 pr-4">
             <h5 class="fnews-title">Hive Blockchain Shares Are Up 100% YTD, Deploys Intel’s Blockscale Chip For Bitcoin Mining Machines</h5>
             <p class="fnews-text">The shares of Bitcoin mining firm HIVE are up more than 100% year-to-date, while it just recently deployed its first machines based on Intel's Blockscale chips.</p>
             <a href="https://cryptonews.com/news/hive-blockchain-shares-are-up-100-ytd-deploys-intels-blockscale-chip-for-bitcoin-mining-machines.htm">See more</a>
           </div>
         </article>
 
-        <article style="display: flex">
-          <%= image_tag ("20k.jpeg") %>
-          <div class="fnews-body">
+        <article class="row gx-3">
+          <div class="image col-12 col-md-12 col-lg-6 pr-4">
+            <%= image_tag "20k.jpg", class: 'w-100' %>
+          </div>
+          <div class="news-text col-12 col-md-12 col-lg-6 pr-4">
             <h5 class="fnews-title">Why Crypto Prices Are in For A Strong Week Ahead as Bitcoin Strengthens Above $20k</h5>
             <p class="fnews-text">The Bitcoin price could continue to accelerate higher, after consolidating and showing strength above the $20k level.</p>
             <a href="https://cryptonews.com/news/why-crypto-prices-are-for-strong-week-ahead-as-bitcoin-strengthens-above-20k.htm">See more</a>
@@ -180,37 +184,44 @@
         </article>
       </div>
 
-      <div class="col-12 col-lg-3 display: flex">
-        <div class="fnews-e" style="width:18rem;">
-          <%= image_tag ("15crypto.jpeg") %>
-          <div class="fnews-body">
+      <div class="col-12 col-lg-4">
+        <div class="rec row gx-3 mb-4">
+          <%= image_tag "15crypto.jpg", class: 'col-6' %>
+          <div class="rec-text col-6">
             <h5 class="fnews-title">15+ New Cryptocurrency to Buy in 2023</h5>
             <a href="https://cryptonews.com/news/new-cryptocurrency.htm">See more</a>
           </div>
         </div>
 
-        <div class="fnews-f" style="width:18rem;">
-          <%= image_tag ("wallet.jpeg") %>
-          <div class="fnews-body">
-            <h5 class="fnews-title">South Korean Software Giant AhnLab Unveils Crypto Wallet</h5>
-            <a href="https://cryptonews.com/news/south-korean-software-giant-ahnlab-unveils-crypto-wallet.htm">See more</a>
+        <div class="rec row gx-3 mb-4">
+            <%= image_tag "wallet.jpg", class: 'col-6' %>
+            <div class="rec-text col-6">
+              <h5 class="fnews-title">South Korean Software Giant AhnLab Unveils Crypto Wallet</h5>
+              <a href="https://cryptonews.com/news/south-korean-software-giant-ahnlab-unveils-crypto-wallet.htm">See more</a>
+            </div>
           </div>
-        </div>
 
-        <div class="fnews-g" style="width:18rem;">
-          <%= image_tag ("sol.jpeg") %>
-          <div class="fnews-body">
+        <div class="rec row gx-3 mb-4">
+          <%= image_tag "sol.jpg", class: 'col-6' %>
+          <div class="rec-text col-6">
             <h5 class="fnews-title">Solana Price Shows it is back From the Dead - Can the Resurrection Push Coin 2x to $30?</h5>
             <a href="https://cryptonews.com/news/solana-price-shows-it-is-back-from-the-dead-can-the-resurrection-push-coin-2x-to-31.htm">See more</a>
           </div>
         </div>
 
-        <div class="fnews-f" style="width:18rem;">
-          <%= image_tag ("elon.jpeg") %>
-          <div class="fnews-body">
+        <div class="rec row gx-3 mb-4">
+          <%= image_tag "trader.jpg", class: 'col-6' %>
+          <div class="rec-text col-6">
+            <h5 class="fnews-title">Data breach: Why is it a big threat for crypto traders, and how to prevent it</h5>
+            <a href="https://cryptonews.com/news/data-breach-why-it-big-threat-for-crypto-traders-how-prevent-it.htm">See more</a>
+          </div>
+        </div>
+
+        <div class="rec row mb-4">
+          <%= image_tag "elon.jpg", class: 'col-6' %>
+          <div class="rec-text col-6">
             <h5 class="fnews-title">Elon Musk Fears Severe US Recession is Coming, Urges the Federal Reserve to Do This to Prevent It</h5>
             <a href="https://cryptonews.com/news/elon-musk-fears-severe-us-recession-coming-urges-federal-reserve-do-prevent-it.htm">See more</a>
-
           </div>
         </div>
       </div>
