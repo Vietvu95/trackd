@@ -24,13 +24,15 @@
   </div>
 
     <!-- Norong search funcs-->
-<section class="container home-search">
+<main class="container home-search">
+<!--
  <form action="" class="search-form">
    <div class="input-container">
       <input type="text" id="cryptoSearch" class="crypto-search">
       <img src="./assets/search.png" alt="">
     </div>
 </form>
+-->
 
 <div class="wrapper">
   <div class="search-area">
@@ -38,12 +40,34 @@
       <input class="custom-input" type="text" name="" placeholder="What are you looking for ...">
       <a href="#" class="icon-area"><i class="fa fa-search"></i></a>
     </div>
-</div>
+  </div>
 </div>
 
+</main>
+  <!-- End Norong search funcs-->
 
+<!--
+<section class="search bg-primary text-light p-5">
+    <div class="container">
+      <div class="d-md-flex justify-content-between align-items-center">
+        <h3 class="mb-3 mb-md-0">Search&nbsp;</h3>
+        <div class="input-group news-input">
+           <input type="text" class="form-control" placeholder="Enter your crypto symbol" >
+          <button class="btn btn-dark btn-lg" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+  </section>
+-->
     <!-- Search table-->
-  <div class="recent-orders">
+
+<!-- Table Crypto API-->
+<section class="p-5 bg-dark text-light" id="crypto">
+<h2>Top 5 Crypto Currency</h2>
+  <div class="container d-flex align-items-center justify-content-center">
+    <div class="row ">
+      <div class="p-5">
+        <div class="cryto-table">
     <table>
       <thead>
         <tr>
@@ -99,17 +123,95 @@
     </table>
     <a href="#">Show All</a>
   </div>
+        <a href="" class="btn btn-light mt-3">
+          <i class="bi bi-chevron-right"></i>Read more
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- End of Table API-->
+
+  <section class="p-5 bg-light text-dark" id="crypto">
+<h2>Top 5 Stock Market</h2>
+  <div class="container d-flex align-items-center justify-content-center">
+    <div class="row ">
+      <div class="p-5">
+        <div class="cryto-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Symbold</th>
+          <th>Current Price</th>
+          <th>Market Cap</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Bitcoin</td>
+        <td>ETH</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+            <tr>
+        <td>ETH</td>
+        <td>Ethereum</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+            <tr>
+        <td>Tether</td>
+        <td>USDT</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+      <tr>
+        <td>BNB</td>
+        <td>BNB</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+      <tr>
+        <td>USD</td>
+        <td>Coin</td>
+        <td>$160000</td>
+        <td class="warning">Loading</td>
+        <td class="primary">Market description</td>
+      </tr>
+
+      </tbody>
+    </table>
+    <a href="#">Show All</a>
+  </div>
+        <a href="" class="btn btn-light mt-3">
+          <i class="bi bi-chevron-right"></i>Read more
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- End of Table API-->
+
 
     <!-- End of search table-->
-</section>
 
-  <!-- End Norong search funcs-->
+
 
 <div class="volatility">
   <div class="assets d-flex justify-content-between">
     <div class="stocks d-flex justify-content-center col-sm-6">
       <div class="stocks-api w-100">
-        <h1>Trendig Stocks (API)</h1>
+        <h1>Stock Graph in 24h</h1>
         <ul>
   <% @assets[0..2].each do |asset| %>
     <li><%= asset.name%></li>
@@ -119,7 +221,7 @@
     </div>
     <div class="crypto d-flex justify-content-center col-sm-6">
       <div class="crypto-api w-100">
-        <h1>Trending Cryptos (API)</h1>
+        <h1>Cryto Graph in 24h</h1>
         <% @assets[0..2].each do |asset| %>
     <li><%= asset.name%></li>
   <% end %>
