@@ -1,7 +1,38 @@
 .portfolio {
   color: black;
-  background: #181a1e;
+  background: #f6f6f9;
+  margin-top: 50px;
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 1rem;
+  box-shadow: var(--box-shadow);
+
+
+    h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+    .btn {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 100px;
+    border-color: aquamarine;
+    background-color:#21ff00;
+    font-weight: 300;
+    color: black;
+  }
 }
+
+  .btn:hover {
+    transition: color 0.6s;
+    color: white;
+    background-color: black;
+    border-color: black;
+  }
+
 
 .portfolio h2 {
   color: black;

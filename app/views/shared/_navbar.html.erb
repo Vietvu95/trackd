@@ -1,26 +1,31 @@
-
-<div>
-  <div class="hamburger">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
   <nav class="nav-bar">
-    <ul class="d-flex align-items-center justify-content-between py-4">
-      <li class="d-inline-block"><%= link_to "Home", root_path, class: "nav-link" %></li>
-      <div>
-        <% if current_user %>
-          <li class="d-inline-block"><%= link_to "Dashboard", dashboard_dashboard_path, class: "btn" %></li>
-          <li class="d-inline-block"><%= link_to "Portfolios",  new_portfolio_path, class: "btn" %></i>
-          <li class="d-inline-block"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn" %></li>
-        <% else %>
-          <li class="d-inline-block"><%= link_to "Log in", new_user_session_path, class: "btn" %></li>
-          <li class="d-inline-block"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-signup" %></li>
-        <% end %>
-      </div>
-    </ul>
+    <div class="container">
+      <ul class="d-flex align-items-center justify-content-between py-4" style="margin-left: -2rem; margin-right: -2rem;">
+        <li class="d-inline-block">
+          <%= link_to root_path do %>
+            <%= image_tag "TRACKD", class: "nav-link" %>
+          <% end %>
+        </li>
+        <div class="hamburger" id="mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </div>
+        <ul id="desktop">
+          <% if current_user %>
+            <li class="d-inline-block"><%= link_to "Dashboard", dashboard_dashboard_path, class: "btn" %></li>
+            <li class="d-inline-block"><%= link_to "New Portfolio",  new_portfolio_path, class: "btn" %></i>
+            <li class="d-inline-block"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn" %></li>
+          <% else %>
+            <li class="d-inline-block"><%= link_to "Log in", new_user_session_path, class: "btn" %></li>
+            <li class="d-inline-block"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-signup", style: "margin-right: 1rem" %></li>
+          <% end %>
+        </ul>
+        </div>
+      </ul>
+    </div>
   </nav>
-</div>
+
 
 <!--
 <div class="logo-img mt-5 rounded"><%= image_tag "T_logo-fullwhite", :style => "border-radius: 20%; width: 40px"%></div>
