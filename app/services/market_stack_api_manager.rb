@@ -16,7 +16,6 @@ class MarketStackApiManager
     @data["data"][0]["close"]
   end
 
-  private
 
   def get_data
     url = "http://api.marketstack.com/v1/eod?access_key=34173b46293810d1f86345ffde9ebb5b&symbols=#{@asset}"
