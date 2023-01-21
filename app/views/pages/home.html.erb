@@ -149,7 +149,9 @@
                 </tr>
               </thead>
               <tbody>
+              <% stock = 1 %>
                 <% @markets["data"].each do |market| %>
+                  <% break if stock == 11 %>
                 <tr class="text-dark">
                   <td><%= market["name"] %></td>
                   <td><%= market["acronym"] %></td>
@@ -158,6 +160,7 @@
                   <td><%= market["city"] %></td>
                   <td><%= market["website"] %></td>
                 </tr>
+                <% stock += 1 %>
                 <% end %>
               </tbody>
             </table>
