@@ -37,7 +37,7 @@
 
 // END DARK THEME
 
-.dashboard * {
+.dashboard * :not(.modal *) {
   margin: 0;
   padding: 0;
   outline: 0;
@@ -195,9 +195,10 @@ height: 2rem;
 }
 
 .dashboard aside .sidebar a:last-child {
-position: absolute;
+position: initial;
 bottom: 2rem;
 width: 100%;
+margin: 10px;
 }
 
 .dashboard aside .sidebar a.active {
@@ -570,10 +571,10 @@ width: 100%;
       width: 5.6rem;
     }
 
-    aside .sidebar a:last-child {
-      position: relative;
-      margin-top: 1.8rem;
-    }
+    // aside .sidebar a:last-child {
+    //   position: relative;
+    //   margin-top: 1.8rem;
+    // }
 
     main .insights {
       grid-template-columns: 1fr;

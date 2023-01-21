@@ -13,29 +13,24 @@
       </div>
 
       <div class="sidebar">
-        <a href="">
-          <span><i class="material-icons sharp">grid_view</i></span>
-          <h3>Dashboard</h3>
-        </a>
-
         <a href="" class="active">
           <span><i class="material-icons sharp">person_outline</i></span>
           <h3>Dashboard</h3>
         </a>
 
-          <a href="">
+          <a href=""data-bs-toggle="modal" data-bs-target="#exampleModal">
           <span><i class="material-icons sharp">add</i></span>
-          <h3>Add Product</h3>
+          <h3>Add Asset</h3>
         </a>
+
+
+
       </div>
     </aside>
     <!-- End of aside -->
     <!-- Beginning main section-->
     <main>
       <h1>Dashboard</h1>
-      <div class="date">
-        <input type="date">
-      </div>
     <!-- Strt of insights -->
       <div class="insights">
       <!-- Start Sales -->
@@ -60,7 +55,7 @@
         <!-- End of Sales -->
 
         <!-- Start Expenses-->
-        <div class="expenses">
+        <div class="expenses" >
           <span><i class="material-icons sharp">bar_chart</i></span>
           <div class="middle">
             <div class="left">
@@ -102,30 +97,35 @@
   <!-- End of Incomes-->
       </div>
       <!-- End of insights -->
-  <div class="recent-orders">
-    <h2>Cryptocurrency Prices by Market Cap</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Current Price</th>
-          <th>Quantity</th>
-          <th>Profit/Loss</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @portfolio_assets.each do |pa| %>
-          <tr>
-            <td><%= pa.asset.name %></td>
-            <td>$<%= pa.get_current_price %></td>
-            <td class="warning"><%= pa.quantity %></td>
-            <td class="primary">$<%= pa.profit_and_loss %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <a href="#">Show All</a>
-  </div>
+      <% if @portfolio_assets != nil  %>
+          <div class="recent-orders">
+            <h2>Transactions</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Current Price</th>
+                  <th>Quantity</th>
+                  <th>Profit/Loss</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @portfolio_assets.each do |pa| %>
+                  <tr>
+                    <td><%= pa.asset.name %></td>
+                    <td>$<%= pa.get_current_price %></td>
+                    <td class="warning"><%= pa.quantity %></td>
+                    <td class="primary">$<%= pa.profit_and_loss %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+      <% end %>
+
+
+<!-- Modal -->
+
     </main>
     <!-- End of main section -->
 
@@ -269,4 +269,29 @@
 
 <!-- -->
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Search for an asset</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'portfolio_assets/form', portfolio: @portfolio, portfolio_asset: @portfolio_asset %>
+
+        <%# <form action="/asset_add" method="post">
+          <label for="fname">Name</label><br>
+          <input type="text" id="fname" name="fname" placeholder="Asset"><br>
+          <label for="lname">Quantity</label><br>
+          <input type="text" id="lname" name="lname" placeholder="Number of Assets"><br><br>
+          <input type="submit" value="Submit">
+        </form> %>
+      </div>
+      <%# <div class="modal-footer">
+        <button type="button" class="btn bxwtn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Search</button>
+      </div> %>
+  </div>
+  </div>
+</div>
 </body>

@@ -19,7 +19,7 @@ class CoinMarketCapApiManager
   private
 
   def get_data
-    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=#{@asset}&CMC_PRO_API_KEY=5aa37e4d-a1ce-4f6e-8790-1dd89f569a5f"
+    url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=#{@asset}&CMC_PRO_API_KEY=84214bea-a731-4f47-9cb3-4f9732b64607"
     assets_serialized = URI.open(url).read
     JSON.parse(assets_serialized)
   end
