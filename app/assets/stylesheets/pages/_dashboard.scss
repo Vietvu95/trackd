@@ -1,44 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300;400;500;600;700;800&family=Sacramento&display=swap');
-
-:root {
-  --color-primary: #7380ec;
-  --color-danger: #ff7782;
-  --color-success: #41f1b6;
-  --color-warning: #ffbb55;
-  --color-white: #fff;
-  --color-info-dark: #7d8da1;
-  --color-info-light: #dce1eb;
-  --color-dark: #363949;
-  --color-light: rgba(132, 139, 200, 0.18);
-  --color-primary-variant: #111e88;
-  --color-dark-variant: #677483;
-  --color-background: #f6f6f9;
-
-  --card-border-radius: 2rem;
-  --border-radius-1: 0.4rem;
-  --border-radius-2: 0.8rem;
-  --border-radius-3: 1.2rem;
-
-  --card-padding: 1.8rem;
-  --padding-1: 1.2rem;
-
-  --box-shadow: 0 2rem 3rem var(--color-light);
-}
-
-// DARK THEME COLOR BACKGROUND
-.dark-theme-variables {
-  --color-background: #181a1e;
-  --color-white: #202528;
-  --color-dark: #edeffd;
-  --color-dark-variant: #a3bdcc;
-  --color-light: rbga(0, 0, 0, 0.4);
-  --box-shadow: 0 2rem 3rem var(--color-light);
-}
-
 // END DARK THEME
 
-.dashboard * :not(.modal *) {
-  margin: 0;
+ol, ul {
+  padding-left: 0rem;
+}
+
+.dashboard * {
+  // margin: 0;
   padding: 0;
   outline: 0;
   appearance: none;
@@ -195,10 +162,9 @@ height: 2rem;
 }
 
 .dashboard aside .sidebar a:last-child {
-position: initial;
+position: absolute;
 bottom: 2rem;
 width: 100%;
-margin: 10px;
 }
 
 .dashboard aside .sidebar a.active {
@@ -571,10 +537,10 @@ margin: 10px;
       width: 5.6rem;
     }
 
-    // aside .sidebar a:last-child {
-    //   position: relative;
-    //   margin-top: 1.8rem;
-    // }
+    aside .sidebar a:last-child {
+      position: relative;
+      margin-top: 1.8rem;
+    }
 
     main .insights {
       grid-template-columns: 1fr;

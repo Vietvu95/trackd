@@ -19,6 +19,24 @@ class PagesController < ApplicationController
     rescue => exception
       @thenewsapi_hash = {"data" => []}
     end
+
+    # diplay data
+    #@markets = MarketStackApiManager.new(params[:query]).get_data
+    @coins = ['BTC', 'ETH', 'USDT', 'BNB', 'USDC']
+    @coins.map! do |coin_name|
+      data = CoinMarketCapApiManager.new(coin_name).get_data["data"]
+
+      info_hash = data.values.first
+    end
+    @markets = MarketStackManager.raw_data
+    @tickers = MarketCoinManager.raw_data
+    # end of display data
+
+    # Search funcs
+    @api_results = params[:query] ? api_search : {}
+    # End of search funcs{}
+
+
   end
 
   def assets_search
@@ -32,5 +50,27 @@ class PagesController < ApplicationController
 
   def assets
     @assets = Asset.all
+  end
+
+
+
+  private
+
+  def api_search
+    if params[:query].present?
+      begin
+         return MarketStackApiManager.new(params[:query]).get_data
+      rescue => e
+          @error = "not valid ticker"
+      end
+      if @error == "not valid ticker"
+        begin
+          return CoinMarketCapApiManager.new(params[:query]).get_data
+        rescue => e
+          @error = "second API invalid"
+          return nil
+        end
+      end
+    end
   end
 end

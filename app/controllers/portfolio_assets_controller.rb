@@ -1,18 +1,19 @@
 class PortfolioAssetsController < ApplicationController
   def create
     @portfolio_asset = PortfolioAsset.new(portfolio_asset_params)
-    @portfolio = Portfolio.find(params[:portfolio_id]) || current_user.portfolios.first
+    @portfolio = Portfolio.find(params[:portfolio_id])
     @portfolio_asset.portfolio = @portfolio
+    @portfolio_asset.purchase_price = @portfolio_asset.calculate_purchase_price(@portfolio_asset.purchase_price)
     if @portfolio_asset.save
-      redirect_to dashboard_path, status: :see_other
+      redirect_to portfolio_path(@portfolio)
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
   private
 
   def portfolio_asset_params
-    params.require(:portfolio_asset).permit(:quantity, :asset_id, :purchase_price, :name)
+    params.require(:portfolio_asset).permit(:quantity, :asset_id, :purchase_price)
   end
 end
