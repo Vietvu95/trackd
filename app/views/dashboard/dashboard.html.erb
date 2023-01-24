@@ -3,9 +3,9 @@
   <div class="container-dash">
     <aside>
       <div class="top">
-        <div class="logo-dash">
+        <%# <div class="logo-dash">
           <h2><span class="danger">T</span>rackd</h2>
-        </div>
+        </div> %>
         <div class="close" id="close-btn">
           <span><i class="material-icons sharp">close</i></span>
         </div>
@@ -57,7 +57,7 @@
     </div>
     <div class="profile">
       <div class="info">
-        <p>Hey, <b>Euclides</b></p>
+        <p>Hey, <b> <%= current_user.first_name %> </b></p>
         <small class="text-muted">Your, portfolio</small>
       </div>
       <div class="profile-dash-photo">
@@ -89,18 +89,19 @@
       </div>
     </div>
 
-     <div class="update">
-      <div class="profile-dash-update-photo">
-        <%= image_tag "https://mdbootstrap.com/img/new/avatars/3.jpg", :class => "update-photo" %>
+      <div class="update">
+        <div class="profile-dash-update-photo">
+          <%= image_tag "https://mdbootstrap.com/img/new/avatars/3.jpg", :class => "update-photo" %>
+        </div>
+        <div class="message">
+          <p><b>Chhomtythya</b> The Cryptocurrency market is not stable yet. Do not buy it now.</p>
+          <small class="text-muted">2 Minutes ago</small>
+        </div>
       </div>
-      <div class="message">
-        <p><b>Chhomtythya</b> The Cryptocurrency market is not stable yet. Do not buy it now.</p>
-        <small class="text-muted">2 Minutes ago</small>
-      </div>
-    </div>
 
+    </div>
   </div>
-</div>
+  -->
   <!-- End of updates update -->
   <div class="sales-analytics">
     <h2>Market movements</h2>
