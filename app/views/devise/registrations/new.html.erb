@@ -7,6 +7,16 @@
             <%= f.error_notification %>
             <div class="form-inputs">
               <% email_value =  params[:email] ? params[:email] : '' %>
+              <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Mark",
+                          input_html: { autocomplete: "First Name", value: first_name_value }%>
+              <%= f.input :last_name,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "Strong",
+                          input_html: { autocomplete: "Last Name", value: last_name_value }%>
               <%= f.input :email,
                           required: true,
                           autofocus: true,
