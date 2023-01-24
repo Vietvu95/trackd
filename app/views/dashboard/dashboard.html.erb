@@ -12,10 +12,10 @@
       </div>
 
       <div class="sidebar">
-        <a href="">
+          <%= link_to portfolio_path(current_user.portfolios.first) do %>
           <span><i class="material-icons sharp">grid_view</i></span>
-          <h3>Dashboard</h3>
-        </a>
+          <h3>Add Assets</h3>
+          <% end  %>
 
         <a href="" class="active">
           <span><i class="material-icons sharp">person_outline</i></span>
@@ -35,96 +35,13 @@
       <div class="date">
         <input type="date">
       </div>
-    <!-- Strt of insights -->
-      <div class="insights">
-      <!-- Start Sales -->
-        <div class="sales">
-          <span><i class="material-icons sharp">analytics</i></span>
-          <div class="middle">
-            <div class="left">
-              <h3>Portfolio Value </h3>
-              <h1><%= @total_current_value %></h1>
-            </div>
-            <div class="progress-dash">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div class="number">
-                <p>81%</p>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted">Last 24 Hours</small>
-        </div>
-        <!-- End of Sales -->
+      <%= turbo_frame_tag :feed, src: dashboard_data_path, loading: :lazy do %>
+        <button class="btn btn-primary" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
 
-        <!-- Start Expenses-->
-        <div class="expenses">
-          <span><i class="material-icons sharp">bar_chart</i></span>
-          <div class="middle">
-            <div class="left">
-              <h3>Total Spent</h3>
-              <h1><%= @total_purchase_value %></h1>
-            </div>
-            <div class="progress-dash">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div class="number">
-                <p>81%</p>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted">Last 24 Hours</small>
-        </div>
-  <!-- End Expenses-->
-
-    <!-- Start Incomes-->
-        <div class="income">
-          <span><i class="material-icons sharp">stacked_line_chart</i></span>
-          <div class="middle">
-            <div class="left">
-              <h3>Profits/Losses</h3>
-              <h1><%=@total_pl  %></h1>
-            </div>
-            <div class="progress-dash">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div class="number">
-                <p>44%</p>
-              </div>
-            </div>
-          </div>
-          <small class="text-muted">Last 24 Hours</small>
-        </div>
-  <!-- End of Incomes-->
-      </div>
-      <!-- End of insights -->
-  <div class="recent-orders">
-    <h2>Cryptocurrency Prices by Market Cap</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Current Price</th>
-          <th>Quantity</th>
-          <th>Profit/Loss</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @portfolio_assets.each do |pa| %>
-          <tr>
-            <td><%= pa.asset.name %></td>
-            <td>$<%= pa.get_current_price %></td>
-            <td class="warning"><%= pa.quantity %></td>
-            <td class="primary">$<%= pa.profit_and_loss %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <a href="#">Show All</a>
-  </div>
+      <% end %>
     </main>
     <!-- End of main section -->
 
@@ -157,8 +74,8 @@
         <%= image_tag "https://mdbootstrap.com/img/new/avatars/1.jpg", :class => "update-photo" %>
       </div>
       <div class="message">
-        <p><b>Viet Vu</b> The Cryptocurrency market is not stable yet. Do not buy it now.</p>
-        <small class="text-muted">2 Minutes ago</small>
+        <p><b>Viet Vu</b> Scared money don't make money </p>
+        <small class="text-muted">69 Minutes ago</small>
       </div>
     </div>
 
@@ -167,7 +84,7 @@
         <%= image_tag "https://mdbootstrap.com/img/new/avatars/4.jpg", :class => "update-photo" %>
       </div>
       <div class="message">
-        <p><b>Jenny Smith</b> The Cryptocurrency market is not stable yet. Do not buy it now.</p>
+        <p><b>Cindy Nguyen</b> Risk it for the biscuit</p>
         <small class="text-muted">2 Minutes ago</small>
       </div>
     </div>
