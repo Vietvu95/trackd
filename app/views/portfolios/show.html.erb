@@ -11,26 +11,26 @@
         <% end %>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Profit/Loss</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @portfolio_assets.each do |pa| %>
-      <tr>
-       <td><%= pa.asset.name %></td>
-        <td>$<%= pa.get_current_price %></td>
-        <td><%= pa.quantity %></td>
-        <td>$<%= pa.profit_and_loss %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Profit/Loss</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @portfolio_assets.each do |pa| %>
+                <tr>
+                <td><%= pa.asset.name %></td>
+                  <td>$<%= pa.get_current_price %></td>
+                  <td><%= pa.quantity %></td>
+                  <td>$<%= pa.profit_and_loss %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
 
         <% if @assets %>
           <%= @asset_name %>
