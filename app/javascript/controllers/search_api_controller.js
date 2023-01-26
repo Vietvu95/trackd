@@ -9,8 +9,10 @@ export default class extends Controller {
   connect() {
     console.log("search_api is here111")
 
-      fetch(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=9da0f106-d8b3-4138-865c-09975e3c1f58`)
-      .then((response) => response.document())
+      fetch("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=9da0f106-d8b3-4138-865c-09975e3c1f58",
+        { headers: { 'Accept': 'application/json' }}
+      )
+      .then((response) => response.json())
       .then(data => console.log(data))
 
       console.log("test this one")
