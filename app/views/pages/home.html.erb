@@ -23,37 +23,74 @@
     </div>
   </div>
 
-    <!-- Norong search funcs-->
-<!-- <main class="container home-search"> -->
-<!--
- <form action="" class="search-form">
-   <div class="input-container">
-      <input type="text" id="cryptoSearch" class="crypto-search">
-      <img src="./assets/search.png" alt="">
-    </div>
-</form>
--->
 <section class="bg-primary text-light text-center p-5">
-<%= form_with url: root_path, method: :get do |form| %>
-        <%= form.label :query, "Search for:" %>
-        <%= form.text_field :query %>
-        <%= form.submit "Search" %>
-      <% end %>
+
+<div>
+  <%= form_with url: root_path, method: :get do |form| %>
+    <%= form.label :query, "Search for:" %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
+
+
   <div>
-    <%= @api_results %>
+
+  <% @tickers["data"].each do |ticker| %>
+    <% if @symbol == ticker["symbol"] %>
+      <%= ticker["name"] %> : <%= ticker["symbol"]  %>
+      <br>
+      Rank: <%= ticker["cmc_rank"] %> <br>
+      price: USD
+        <% ticker["quote"].each  do |x|%>
+          <% x.each do |y| %>
+            <%= y["price"] %>
+          <% end %>
+        <% end %>
+    <% end %>
+  <% end %>
+
+
+
+    <%#= @api_results %>
   </div>
+
+
+
 
 </section>
 <section class="p-5 bg-dark text-light" id="crypto">
-<div class="wrapper">
-  <div class="search-area">
-    <div class="single-search">
-      <input class="custom-input" type="text" name="query" placeholder="What are you looking for ...">
-      <a href="#" class="icon-area"><i class="fa fa-search"></i></a>
+
+<form id="search-form" class="row">
+  <div class="col-10">
+    <div class="searchWrapper">
+      <div class="search-area">
+        <div class="single-search"
+        data-controller="search_api"
+        >
+          <input id ="searchBar" class="custom-input" type="text" name="query" placeholder="What are you looking for ..."
+          data-action="keyup->search_api#submitSearch"
+          >
+          <a href="#" class="icon-area"><i class="fa fa-search"></i></a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+</form>
+
+
+
 </section>
+
+<!-- Test search funcs-->
+<div class="container text-center">
+  <ul id="result-list" class="list-inline"></ul>
+</div>
+<!-- End search funcs-->
+
+
+
+
+
 
 
 <!--</main> -->
@@ -149,19 +186,21 @@
                 </tr>
               </thead>
               <tbody>
-              <% stock = 1 %>
-                <% @markets["data"].each do |market| %>
-                  <% break if stock == 11 %>
+              <%# stock = 1 %>
+                <%# @markets["data"].each do |market| %>
+                  <%# break if stock == 11 %>
+                  <!--
                 <tr class="text-dark">
-                  <td><%= market["name"] %></td>
-                  <td><%= market["acronym"] %></td>
-                  <td><%= market["mic"] %></td>
-                  <td><%= market["country"] %></td>
-                  <td><%= market["city"] %></td>
-                  <td><%= market["website"] %></td>
+                  <td><%#= market["name"] %></td>
+                  <td><%#= market["acronym"] %></td>
+                  <td><%#= market["mic"] %></td>
+                  <td><%#= market["country"] %></td>
+                  <td><#%= market["city"] %></td>
+                  <td><%#= market["website"] %></td>
                 </tr>
-                <% stock += 1 %>
-                <% end %>
+                -->
+                <%# stock += 1 %>
+                <%# end %>
               </tbody>
             </table>
   <!-- <td> <%= @markets %></td> -->
@@ -176,7 +215,7 @@
 <!-- End of search table-->
 
 
-<!-->
+<!--
 <div class="volatility">
   <div class="assets d-flex justify-content-between">
     <div class="stocks d-flex justify-content-center col-sm-6">
@@ -307,51 +346,21 @@
 </div>
 
 <script>
+// const searchCrypto = (query) => {
+//  fetch(`http://www.omdbapi.com/?s=${query}&apikey=adf1f2d7`)
+//     .then(response => response.json())
+//     .then((data) => {
+//       data.Search.forEach((result) => {
+//         const movie = `<li class="list-inline-item">
+//           <img src="${result.Poster}" alt="">
+//           <p>${result.Title}</p>
+//         </li>`
+//         results.insertAdjacentHTML("beforeend", movie)
+//       })
+//     })
+// }
 
-const list = document.querySelector("#results")
 
-const insertMovies = (data) => {
-  data.Search.forEach((result) => {
-    const movieTag = `<li class="list-group-item border-0">
-      <img src="${result.Poster}" alt="" width="100">
-    </li>`
-    list.insertAdjacentHTML("beforeend", movieTag)
-  })
-}
 
-const fetchMovies = (query) => {
-  fetch(`http://www.omdbapi.com/?s=${query}&apikey=adf1f2d7`)
-    .then(response => response.json())
-    .then(data => insertMovies(data))
-}
-
-fetchMovies("") // on 1st page load
-
-const form = document.querySelector(".search-form")
-form.addEventListener("keyup", (event) => {
-  event.preventDefault()
-  list.innerHTML = ""
-  const input = document.querySelector(".crypto-search")
-  fetchMovies(input.value)
-})
-
-</script>
-
-<script>
-  function showmore() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("showall");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more";
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less";
-    moreText.style.display = "inline";
-  }
-}
 </script>
 </body>
