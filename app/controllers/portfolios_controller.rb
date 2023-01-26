@@ -58,6 +58,8 @@ class PortfoliosController < ApplicationController
        @message = "Please enter a ticker"
     end
     @portfolio_asset = PortfolioAsset.new
+    @portfolio = Portfolio.find(params[:id])
+    @portfolio_assets = @portfolio.portfolio_assets
   end
 
   private
