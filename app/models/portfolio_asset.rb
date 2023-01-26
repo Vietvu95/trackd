@@ -1,4 +1,4 @@
-lass PortfolioAsset < ApplicationRecord
+class PortfolioAsset < ApplicationRecord
   belongs_to :portfolio
   belongs_to :asset
 
@@ -8,12 +8,14 @@ lass PortfolioAsset < ApplicationRecord
 
   def get_current_price
     if asset.updated_at > 1.minutes.ago
+      puts "=====================using last price"
       return (asset.last_price * quantity).round(2)
     end
     api_price = get_price_from_api
     if api_price.class == String
       return (asset.last_price * quantity).round(2)
     else
+      puts "=====================using api price"
       asset.update!(last_price: api_price)
       return (api_price * quantity).round(2)
     end

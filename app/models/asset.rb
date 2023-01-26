@@ -8,9 +8,10 @@ class Asset < ApplicationRecord
       asset = Asset.new(name: name.upcase, last_price: price)
       asset.save!
     end
-    if updated_at > 1.minutes.ago
+    if asset.updated_at > 1.minutes.ago
       asset.last_price = price
       asset.save!
     end
+    asset
   end
 end
