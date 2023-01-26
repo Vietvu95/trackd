@@ -1,4 +1,4 @@
- <%= turbo_frame_tag :feed  do %>
+<%= turbo_frame_tag :feed  do %>
 
  <!-- Strt of insights -->
       <div class="insights">
@@ -67,26 +67,30 @@
       </div>
       <!-- End of insights -->
   <div class="recent-orders">
-    <h2>Cryptocurrency Prices by Market Cap</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Current Price</th>
-          <th>Quantity</th>
-          <th>Profit/Loss</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @portfolio_assets.each do |pa| %>
+    <% if @portfolio_assets != nil %>
+      <h2>Cryptocurrency Prices by Market Cap</h2>
+      <table>
+        <thead>
           <tr>
-            <td><%= pa.asset.name %></td>
-            <td>$<%= pa.get_current_price %></td>
-            <td class="warning"><%= pa.quantity %></td>
-            <td class="primary">$<%= pa.profit_and_loss %></td>
+            <th>Symbol</th>
+            <th>Current Price</th>
+            <th>Quantity</th>
+            <th>Profit/Loss</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+            <% @portfolio_assets.each do |pa| %>
+              <tr>
+                <td><%= pa.asset.name %></td>
+                <td>$<%= pa.get_current_price %></td>
+                <td class="warning"><%= pa.quantity %></td>
+                <td class="primary">$<%= pa.profit_and_loss %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>Purchase an asset</p>
+    <% end %>
   </div>
   <% end %>
