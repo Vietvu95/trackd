@@ -4,7 +4,7 @@ class Portfolio < ApplicationRecord
 
   def total_value
     total = 0
-    self.portfolio_assets.each do |portfolio_asset|
+    portfolio_assets.each do |portfolio_asset|
       total += portfolio_asset.get_current_price
     end
     return total
@@ -12,7 +12,7 @@ class Portfolio < ApplicationRecord
 
   def total_purchase_value
     total = 0
-    self.portfolio_assets.each do |portfolio_asset|
+    portfolio_assets.each do |portfolio_asset|
       total += portfolio_asset.purchase_price
     end
     return total
