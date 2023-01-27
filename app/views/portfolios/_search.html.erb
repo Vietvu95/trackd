@@ -1,0 +1,51 @@
+<div class=“portfolio”>
+  <div class=“pname d-flex justify-content-center”>
+  <h2><%= @portfolio.name%></h2>
+  </div>
+  <%= form_with method: :get, class: do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: “form-control”,
+      placeholder: “Find asset”
+    %>
+    <%= submit_tag “Search”, class: “btn-ghost” %>
+  <% end %>
+    <% if @assets %>
+      <%= @asset_name %>
+      <%= @asset_price %>
+      <%= simple_form_for([@portfolio, @portfolio_asset]) do |f|  %>
+      <%= f.input :quantity %>
+      <%= f.hidden_field “asset_id”, value: @asset.id %>
+      <%= f.hidden_field “purchase_price”, value: @asset_price %>
+      <%= f.submit :submit, class: “btn-ghost” %>
+      <% end %>
+    <% else %>
+      <%= @message %>
+    <% end %>
+  <div class=“myassets”>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Profit/Loss</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if !@portfolio.portfolio_assets.empty? %>
+        <% @portfolio.portfolio_assets.each do |pa| %>
+          <tr>
+          <td><%= pa.asset.name %></td>
+            <td>$<%= pa.get_current_price %></td>
+            <td class=“warning”><%= pa.quantity %></td>
+            <td class=“primary”>$<%= pa.profit_and_loss %></td>
+          </tr>
+        <% end %>
+        <% else %>
+        <p>No assets yet, please add.</p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
