@@ -28,12 +28,18 @@ class PagesController < ApplicationController
 
       info_hash = data.values.first
     end
-    @markets = MarketStackManager.raw_data
+    #@markets = MarketStackManager.raw_data
     @tickers = MarketCoinManager.raw_data
     # end of display data
 
     # Search funcs
     @api_results = params[:query] ? api_search : {}
+
+    @symbol = params[:query]
+    if @symbol
+      @symbol = @symbol.upcase
+    end
+
     # End of search funcs{}
 
 

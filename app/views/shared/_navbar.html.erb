@@ -15,7 +15,10 @@
           <% if current_user %>
             <li class="d-inline-block"><%= link_to "Dashboard", dashboard_path, class: "btn" %></li>
             <li class="d-inline-block"><%= link_to "New Portfolio",  new_portfolio_path, class: "btn" %></i>
-            <li class="d-inline-block"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn" %></li>
+            <!--
+            <li class="d-inline-block"><%#= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn" %></li> -->
+            <li class="d-inline-block" onclick="menuToggle()"><%= image_tag "https://mdbootstrap.com/img/new/avatars/2.jpg", :class => "profile-photo" %></li>
+
           <% else %>
             <li class="d-inline-block"><%= link_to "Log in", new_user_session_path, class: "btn" %></li>
             <li class="d-inline-block"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-signup", style: "margin-right: 1rem" %></li>

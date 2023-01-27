@@ -24,6 +24,7 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 gem 'material_icons'
+gem 'jquery-rails', '~> 4.5', '>= 4.5.1'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
