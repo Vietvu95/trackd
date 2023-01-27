@@ -21,6 +21,29 @@
       <%= image_tag "Crypto" %>
       </div>
     </div>
+
+    <div class="sub-menu-wrap">
+      <div class="sub-menu">
+        <div class="user-info">
+          <% if !current_user.nil? %>
+          <h3><%= current_user.email %><br><span>Trackd Profile</span></h3>
+          <% end %>
+        </div>
+      </div>
+
+        <ul>
+          <li><span><i class="material-icons sharp"><span class="material-symbols-sharp">
+            leaderboard
+            </span></i></span><%= link_to "Dashboard", dashboard_path, class: "a" %></li>
+            <li><span><i class="material-icons sharp"><span class="material-symbols-sharp">
+            currency_exchange
+            </span></i></span><%= link_to "Portfolio",  new_portfolio_path, class: "a" %></li>
+            <li><span><i class="material-icons sharp"><span class="material-symbols-sharp">
+            logout
+            </span></i></span><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "a" %></li>
+        </ul>
+    </div>
+
   </div>
 
 <section class="bg-primary text-light text-center p-5">
@@ -38,7 +61,7 @@
 
   <% @tickers["data"].each do |ticker| %>
     <% if @symbol == ticker["symbol"] %>
-      <%= ticker["name"] %> : <%= ticker["symbol"]  %>
+      <%= ticker["name"] %> : <%#= ticker["symbol"]  %>
       <br>
       Rank: <%= ticker["cmc_rank"] %> <br>
       price: USD
@@ -138,7 +161,7 @@
   <% @tickers["data"].each do |ticker| %>
   <% if count <= 20 %>
   <td><p><%= ticker["cmc_rank"] %></p></td>
-    <td><p class="text-warning"><%= ticker["name"] %></p></td>
+    <td><p class="text-warning"><%#= ticker["name"] %></p></td>
     <td><p><%= ticker["symbol"] %></p></td>
     <td><p><%= ticker["date_added"] %></p></td>
     <td><p><%= ticker["max_supply"] %></p></td>
@@ -360,7 +383,12 @@
 //     })
 // }
 
-
+</script>
+<script>
+function menuToggle() {
+  const toggleMenu = document.querySelector('.sub-menu-wrap');
+  toggleMenu.classList.toggle('active');
+}
 
 </script>
 </body>

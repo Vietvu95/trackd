@@ -9,6 +9,15 @@
   height: 55px;
 }
 
+.nav-bar {
+  .profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+
 .nav-bar a {
   text-decoration: none;
   font-family: 'Lato', sans-serif;
