@@ -326,6 +326,7 @@ h1 {
   color: white;
   font-weight: bold;
   font-size: 70px;
+  font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 }
 
 body {
@@ -347,6 +348,7 @@ p {
   color: white;
   position: relative;
   // font-size: 50px;
+  font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 }
 
 .card4 {
@@ -374,12 +376,14 @@ p {
     color: #24FF00;
     font-size: 85px;
     font-weight: bold;
+    font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   }
 }
 
 .assets {
   h1 {
     font-size: 25px;
+    font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   }
 }
 
@@ -403,6 +407,7 @@ p {
 .assets {
   h1, p {
     color:black;
+    font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   }
 }
 
@@ -415,7 +420,9 @@ p {
   h1, p {
     text-align: center;
     margin-top: 35px;
+    padding-bottom: 45px;
     color: black;
+    font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   }
 
   p {
@@ -451,16 +458,31 @@ p {
 // }
 
 .device {
-  background-color: white;
+  background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
   height: 800px;
   padding-top: 25px;
 
   h1 {
-    color: black;
+    color: White;
     text-align: center;
-    text-shadow:#2D3436
+    text-shadow:#2D3436;
+    font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  }
+  .textcard {
+    padding: 55px;
+  }
+ .mockup {
+  height: 600px;
+  width: 600px;
+
+  }
+
+  h2 {
+  font-family: Acumin Pro, acumin-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  color: white;
   }
 }
+
 
 .email-input {
   input {
