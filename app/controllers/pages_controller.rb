@@ -28,7 +28,7 @@ class PagesController < ApplicationController
 
       info_hash = data.values.first
     end
-    #@markets = MarketStackManager.raw_data
+    @markets = MarketStackManager.raw_data
     @tickers = MarketCoinManager.raw_data
     # end of display data
 
