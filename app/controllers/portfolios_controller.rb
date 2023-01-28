@@ -60,6 +60,18 @@ class PortfoliosController < ApplicationController
    @portfolio_asset = PortfolioAsset.new
  end
 
+ def portfolio_data
+  if current_user.portfolio != nil
+    @total_current_value = current_user.portfolio.total_value.round(2)
+    @total_purchase_value = current_user.portfolio.total_purchase_value.round(2)
+    @portfolio_assets = current_user.portfolio_assets
+ else
+    @total_current_value = 0
+    @total_purchase_value = 0
+ end
+  @total_pl = (@total_current_value - @total_purchase_value).round(2)
+end
+
  private
  def portfolio_params
    params.require(:portfolio).permit(:name)
@@ -69,15 +81,5 @@ class PortfoliosController < ApplicationController
    @portfolio = Portfolio.find(params[:id])
  end
 
- def portoflio_data
-    if current_user.portfolio != nil
-      @total_current_value = current_user.portfolio.total_value.round(2)
-      @total_purchase_value = current_user.portfolio.total_purchase_value.round(2)
-      @portfolio_assets = current_user.portfolio_assets
-   else
-      @total_current_value = 0
-      @total_purchase_value = 0
-   end
-    @total_pl = (@total_current_value - @total_purchase_value).round(2)
-  end
+
 end
