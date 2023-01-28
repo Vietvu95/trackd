@@ -55,7 +55,7 @@
 
         <div class="input-group news-input">
           <input type="text" class="form-control" placeholder="Enter email" >
-          <button class="new-btn btn btn-dark btn-lg" type="button">Sign up</button>
+          <button class="news-btn btn btn-dark btn-lg" type="button">Sign up</button>
         </div>
       </div>
     </div>
@@ -251,6 +251,37 @@
   </div>
 </section>
   <!-- End of Table API-->
+
+
+<!-- TradingView Widget BEGIN -->
+<section class="bg-white d-flex align-items-center justify-content-center justify-content-between">
+<div class="tradingview-widget-container">
+  <div id="tradingview_35059"></div>
+  <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL stock chart</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "width": 1710,
+  "height": 900,
+  "symbol": "NASDAQ:AAPL",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "light",
+  "style": "1",
+  "locale": "in",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_35059"
+}
+  );
+  </script>
+</div>
+</section>
+<!-- TradingView Widget END -->
+
+
 
 <!-- End of search table-->
 
@@ -518,4 +549,5 @@ function menuToggle() {
 }
 
 </script>
+
 </body>
